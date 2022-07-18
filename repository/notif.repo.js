@@ -7,7 +7,7 @@ exports.save = async(notif) => {
 
 exports.findNotificationByEmail = async(email) => {
     return await Notification.findAll({
-        where: email,
+        where: {email},
         order: [
             ['updatedAt', 'DESC']
         ]
