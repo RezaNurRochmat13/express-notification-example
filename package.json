@@ -11,10 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-formidable": "^1.2.0",
+    "firebase": "^9.9.0",
     "firebase-admin": "^11.0.0",
     "nodemon": "^2.0.18",
+    "onesignal-node": "^3.4.0",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.21.2"

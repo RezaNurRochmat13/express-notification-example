@@ -35,9 +35,5 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.notification = require("./notification.js")(sequelize, Sequelize);
-db.user = require("./user.js")(sequelize, Sequelize);
-
-db.notification.associate(db);
-db.user.associate(db);
 
 module.exports = db;
