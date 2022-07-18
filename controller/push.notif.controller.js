@@ -4,10 +4,19 @@ const notificationSvc = require('../service/push.notif.service.js');
 exports.doSendMessageNotif = async(request, response) => {
     const result = await notificationSvc.createNotification(request);
 
-    response.status(201).json({
-        message: 'Message sended successfully',
-        data: result
-    });
+    if(result != null) {
+        response.status(201).json({
+            message: 'Message sended successfully',
+            data: result
+        });
+    } else {
+        response.status(400).json({
+            error: 'Email not sended',
+            data: null
+        });
+    }
+
+    
 }
 
 exports.doGetMessageNotif = async(request, response) => {

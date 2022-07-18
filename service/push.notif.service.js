@@ -1,4 +1,5 @@
 const notificationRepo = require('../repository/notif.repo.js');
+const emailSvc = require('../service/email.service.js');
 
 exports.createNotification = async(payload) => {
     const payloadBody = {
@@ -6,7 +7,15 @@ exports.createNotification = async(payload) => {
         body: payload.fields.body,
         email: payload.fields.email,
     }
-    return await notificationRepo.save(payloadBody);
+
+    const sendingEmail = await emailSvc.sendEmail(payloadBody);
+
+    if(sendingEmail != null) {
+        return await notificationRepo.save(payloadBody);
+    } else {
+        return null;
+    }
+
 }
 
 exports.getNotificationEmail = async(email) => {
