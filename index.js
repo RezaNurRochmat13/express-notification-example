@@ -8,6 +8,11 @@ app.use(formidableConf());
 
 app.use(routerConfig);
 
+
+app.get('/', (request, response) => {
+    response.json({message: "Service up"});
+});
+
 app.listen(PORT, () => {
     console.info(`Server running at port : ${PORT}`);
 })
