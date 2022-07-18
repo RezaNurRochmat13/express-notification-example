@@ -8,6 +8,6 @@ app.use(formidableConf());
 
 app.use(routerConfig);
 
-app.listen(9090, () => {
-    console.info(`Server running at port : ${9090}`);
+app.listen(PORT, () => {
+    console.info(`Server running at port : ${PORT}`);
 })
