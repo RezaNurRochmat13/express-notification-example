@@ -3,7 +3,7 @@ const router = express.Router();
 const notificationController = require('./controller/push.notif.controller.js');
 
 // router.post('/api/fcm/send', notificationController.doSendMessageNotif);
-router.post('/api/notif/send', notificationController.doSendMessageNotifToExternalProvider);
+router.post('/api/notif/send', notificationController.doSendMessageNotif);
 router.get("/api/notif", notificationController.doGetMessageNotif);
 
 module.exports = router;
