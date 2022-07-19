@@ -9,17 +9,21 @@ exports.sendEmail = async(message) => {
   let transporter = nodemailer.createTransport({
     host: process.env.MAILER_HOST,
     port: process.env.MAILER_PORT,
+    starttls: {
+      enable: true
+    },
     secure: false, // true for 465, false for other ports
     auth: {
       user: process.env.MAILER_USERNAME,
       pass: process.env.MAILER_PASSWORD,
     },
+    from: 'no-reply@gmail.com'
   });
 
   try {
     // send mail with defined transport object
     let info = await transporter.sendMail({
-        from: 'no-reply@gmail.com', // sender address
+        from: 'No Reply <no-reply@gmail.com>', // sender address
         to: message.email, // list of receivers
         subject: message.title, // Subject line
         text: message.body, // plain text body
