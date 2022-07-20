@@ -11,8 +11,8 @@ exports.sendEmail = async(message) => {
     port: process.env.MAILER_PORT,
     starttls: {
       enable: true
-    },
-    secure: false, // true for 465, false for other ports
+    },  
+    secureConnection: true, // true for 465, false for other ports
     auth: {
       user: process.env.MAILER_USERNAME,
       pass: process.env.MAILER_PASSWORD,
